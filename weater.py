@@ -16,7 +16,7 @@ def get_iciba_everyday():
     return str
 
 def ServerPush(info): #Server酱推送
-    api = "https://sc.ftqq.com/{}.send".format(SCKEY)
+    api = "https://sctapi.ftqq.com/{}.send".format(SCKEY)
     title = u"天气推送"
     content = info.replace('\n','\n\n')
     data = {
