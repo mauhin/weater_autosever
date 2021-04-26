@@ -5,7 +5,7 @@ import requests, json
 import os
 
 SCKEY=os.environ.get('SCKEY') ##Server酱推送KEY
-SKey=os.environ.get('SKEY') #CoolPush酷推KEY
+#SKey=os.environ.get('SKEY') #CoolPush酷推KEY
 def get_iciba_everyday():
     icbapi = 'http://open.iciba.com/dsapi/'
     eed = requests.get(icbapi)
@@ -25,13 +25,13 @@ def ServerPush(info): #Server酱推送
     }
     print(content)
     requests.post(api, data=data)
-def CoolPush(info): #CoolPush酷推
+#def CoolPush(info): #CoolPush酷推
     # cpurl = 'https://push.xuthus.cc/group/'+spkey   #推送到QQ群
     # cpurl = 'https://push.xuthus.cc/send/' + SKey  # 推送到个人QQ
-    api='https://push.xuthus.cc/send/{}'.format(SKey)
-    print(api)
-    print(info)
-    requests.post(api, info.encode('utf-8'))
+   # api='https://push.xuthus.cc/send/{}'.format(SKey)
+   # print(api)
+    #print(info)
+   # requests.post(api, info.encode('utf-8'))
 def main():
     try:
         api = 'http://t.weather.itboy.net/api/weather/city/'             #API地址，必须配合城市代码使用
@@ -64,7 +64,7 @@ def main():
             # print(tdwt)
             # requests.post(cpurl,tdwt.encode('utf-8'))         #把天气数据转换成UTF-8格式，不然要报错。
             ServerPush(tdwt)
-            CoolPush(tdwt)
+            #CoolPush(tdwt)
     except Exception:
         error = '【出现错误】\n　　今日天气推送错误，请检查服务或网络状态！'
         print(error)
